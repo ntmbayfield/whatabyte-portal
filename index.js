@@ -8,6 +8,10 @@ const app = express();
 //define a port variable that assumes the value of a defined environment variable proccess.env.PORT or 8000
 const port = process.env.PORT || "8000";
 
+//configures Express to use the views directory as a source for view templates.  the path.join() method joins the given path segments together using the specific separator of your operating system as a delimiter and then normalizes the resulting path
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+
 //create a route that handles GET HTTP requests made to the root path, /, and replies with a string
 app.get("/", (req, res) => {
   res.status(200).send("WHATABYTE: Food For Devs");
