@@ -12,9 +12,9 @@ const port = process.env.PORT || "8000";
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-//create a route that handles GET HTTP requests made to the root path, /, and replies with a string
+//create a route that handles GET HTTP requests made to the root path, /, and renders the index.pug template as the client response
 app.get("/", (req, res) => {
-  res.status(200).send("WHATABYTE: Food For Devs");
+  res.render("index", {title: "Home"});
 });
 
 //setup the Express app to listen for HTTP requests on the previously defined port
