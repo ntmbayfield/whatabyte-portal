@@ -12,6 +12,10 @@ const port = process.env.PORT || "8000";
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+//use the app.use() method to mount the express.static() middleware function in order to specify the path of the directory from which to serve static assets
+app.use(express.static(path.join(__dirname, "public"
+)));
+
 //create a route that handles GET HTTP requests made to the root path, /, and renders the index.pug template as the client response
 app.get("/", (req, res) => {
   res.render("index", {title: "Home"});
